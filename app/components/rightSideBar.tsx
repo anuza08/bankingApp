@@ -5,6 +5,7 @@ import Image from "next/image";
 import BankCard from "./bankCard";
 
 const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
+  console.log("user", user);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,7 +15,6 @@ const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
   if (!mounted) {
     return null;
   }
-
   return (
     <aside className="right-sidebar">
       <section className="flex flex-col pb-8">
@@ -22,13 +22,11 @@ const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-blue-500">
-              {user.firstName[0]}
+              {user.name[0]}
             </span>
           </div>
           <div className="profile-details">
-            <h1 className="profile-name">
-              {user.firstName} {user.lastName}
-            </h1>
+            <h1 className="profile-name">{user.name}</h1>
             <p className="profile-email">{user.email}</p>
           </div>
         </div>
